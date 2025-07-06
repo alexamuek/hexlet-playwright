@@ -19,9 +19,9 @@ test('get started link', async ({ page }) => {
 });*/
 
 import { test } from '@playwright/test'
-// import { allure } from 'allure-playwright'
-import * as allure from 'allure-js-commons'
-import { ContentType } from 'allure-js-commons'
+import { allure } from 'allure-playwright'
+// import * as allure from 'allure-js-commons'
+// import { ContentType } from 'allure-js-commons'
 
 
 test('Example test', async ({ page }) => {
@@ -30,17 +30,17 @@ test('Example test', async ({ page }) => {
   })
 
    // Делаем скриншот и прикрепляем его автоматически
-  // const screenshot = await page.screenshot();
-  // await allure.attachment('Скриншот страницы', screenshot, 'image/png');
+  const screenshot = await page.screenshot();
+  await allure.attachment('Скриншот страницы', screenshot, 'image/png');
   // Текстовое вложение
-  // await allure.attachment('Текстовый файл', 'Содержимое', 'text/plain');
-  await allure.attachmentPath('Screenshot', '/home/alexamuek/hexlet/hexlet-playwright/screens/image.png', {
+  await allure.attachment('Текстовый файл', 'Содержимое', 'text/plain');
+  /* await allure.attachmentPath('Screenshot', '/home/alexamuek/hexlet/hexlet-playwright/screens/image.png', {
     contentType: ContentType.PNG,
     fileExtension: 'png',
   })
 
   // Можно даже сохранять текстовые файлы
-  await allure.attachment('Текстовый файл', 'Содержимое', ContentType.TEXT)
+  await allure.attachment('Текстовый файл', 'Содержимое', ContentType.TEXT)*/
   await allure.step('Проверка заголовка', async () => {
     const title = await page.title()
     test.expect(title).toBe('Example Domain')
