@@ -32,6 +32,9 @@ test('Example test', async ({ page }) => {
    // Делаем скриншот и прикрепляем его автоматически
   const screenshot = await page.screenshot();
   await allure.attachment('Скриншот страницы', screenshot, 'image/png');
+  // Сохраняем скриншот в папку `screenshots`
+  await page.screenshot({ path: '/home/alexamuek/hexlet/hexlet-playwright/screenshots/screenshot.png' });
+  console.log('Скриншот сохранён'); // 🟢 Лог 3
   // Текстовое вложение
   await allure.attachment('Текстовый файл', 'Содержимое', 'text/plain');
   /* await allure.attachmentPath('Screenshot', '/home/alexamuek/hexlet/hexlet-playwright/screens/image.png', {
