@@ -43,7 +43,7 @@ test('Example test', async ({ page }) => {
   await allure.attachment('Текстовый файл', 'Содержимое', ContentType.TEXT)*/
   await allure.step('Проверка заголовка', async () => {
     const title = await page.title()
-    test.expect(title).toBe('Example Domain')
+    test.expect(title).toBe('React • TodoMVC')
   })
 })
 
